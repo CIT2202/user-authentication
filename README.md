@@ -23,7 +23,7 @@
 
 5.	A login system with a hard-coded username and password isn’t very useful. How can you change the above so that the usernames and passwords are stored in a database table and SQL queries are used to test the username and password? 
 
-6. Think about how you can hash the passwords to make the data more secure. Try using the PHP crypt() function.
+6. Think about how you can hash the passwords to make the data more secure. Try using the PHP crypt() function or the password_hash() (http://php.net/manual/en/function.password-hash.php) and password_verify() (http://php.net/manual/en/function.password-verify.php) functions.
 
 7. Try to create a registration form. A simple example should be fairly straight forward to implement. Think about how you can make sure no two users share the same username. 
 
