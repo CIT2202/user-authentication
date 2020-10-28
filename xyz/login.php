@@ -1,16 +1,24 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title>Login Form : XYZ inc.</title>
+<title>Login Form : XYZ inc.</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
 </head>
 
 <body>
 <h1>Welcome to XYZ inc.</h1>
-    
+<?php
+if(isset($_SESSION["error_msg"])){
+  echo "<p>{$_SESSION["error_msg"]}</p>";
+}
+?>
+
 <form action="login_process.php" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
+    <label for="username">Email address:</label>
+    <input type="email" id="email" name="email">
     <label for="password" >Password:</label>
     <input type="password" id="password" name="password">
     <input type="submit" name="login" value="Login">
