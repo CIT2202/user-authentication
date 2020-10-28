@@ -19,9 +19,6 @@ session_start();
   	{
   		$_SESSION["user"]=$email;
   		header( "Location: index.php" );
-  	}else{
-  		$_SESSION["error_msg"]="Wrong login details";
-  		header( "Location: login.php" );
   	}
   }else{
   	header( "Location: login.php" );

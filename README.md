@@ -1,29 +1,34 @@
-# User Authentication and Sessions
+# User Authentication
+## A simple example with a hard-coded password
+xyz is a website with a simple login system.
+* Open *login.php*, *login_process.php* in a text editor. See how the login systems is working, the email and password from the form are tested and then a session variable is set.
+* Put the xyz website on a server. Login into the website and make sure you can navigate to each of the pages.
+* Have a good look at the code make sure you understand how sessions are being used to restrict access to pages in the site.
 
-* Put the xyz website on a server, open the website in a browser, check you can navigate around the site. 
-* *login.php* features a login form. When submitted this takes the user to *login_process.php*.
+On your own
+* Create a page called *logout.php*
+   * This should destroy the session and provide a link back to the login form. Add a link to *logout.php* from the other pages in the site. Check this works.
+* You should find that even if the user has logged out they can still access *page3.php*.  Add some PHP code to *page3.php* that will prevent users from accessing this page unless they have logged in.
 
-1. In *login_process.php* add some code that will test the user's username and password using a simple if statement. If the user enters a username of ‘testuser’ and password of ‘letmein’ they should receive a message telling them they are correct
+## Using a database
+Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead.
 
-2. Using sessions can you protect the rest of the website so that only authenticated users can access the pages. 
-  * In *login_process.php*, if the user successfully logs in, set a session variable e.g. 
-   ```php
-    $_SESSION["username"]="testuser"; 
-   ```
-  * In each of the website pages test to see if this variable has been set
-     * If it has display a message saying ‘logged in as testuser’
-     * If it hasn’t been set 
-       * Don’t display the page contents
-       * Instead display a hyperlink back to the login form
+### Hashing passwords
+We should never store passwords as plain text. Open *hashing.php* see how PHP generates password hashes.
+* Experiment with hashing some more passwords using both *md5* and *bcrpyt*.
+* Make sure you understand the different that adding a salt makes.
 
-3. Create a page called *logout.php*
-   * This should destroy the session and provide a link back to the login form
 
-4.	Now think about how you can use URL redirection so that users are automatically re-directed to the appropriate page instead of having to click on hyperlinks.
+### Set up the database table
+Using the same database that you have used in previous weeks, execute the SQL statements in [users.sql](users.sql). This will set up a database table containing user emails and passwords.
 
-5.	A login system with a hard-coded username and password isn’t very useful. How can you change the above so that the usernames and passwords are stored in a database table and SQL queries are used to test the username and password? 
+If you browse this table you will see that the passwords have been hashed. The actual passwords are:-
+* ghulam@xyz.co.uk password:huddersfield
+* regina@xyz.co.uk password:123456
+* olive@xyz.co.uk  password:qwerty
 
-6. Think about how you can hash the passwords to make the data more secure. Try using the password_hash() (http://php.net/manual/en/function.password-hash.php) and password_verify() (http://php.net/manual/en/function.password-verify.php) functions.
+### Modify the login code to use a database
+* Modify the code in *login_process.php* so that you test the user's email address and password against the values in the users table. Have a look on the notes/slides from this week for an example, or look on php.net for info the **password_verify()** function (http://php.net/manual/en/function.password-verify.php).
+> If you are having problems getting this to work, temporarily comment out the redirection statements e.g. ```header( "Location: index.php" );``` you will then be able to see errors in login_process.php.
 
-7. Try to create a registration form. A simple example should be fairly straight forward to implement. Think about how you can make sure no two users share the same username. 
-
+* To test your understanding, in phpmyadmin use the 'insert' tab to add another user to the database table. Invent an email address and use a hashed password from *hashing.php* as the password. Check you can successfully login using this password. 
