@@ -12,6 +12,7 @@ session_start();
 
   <?php
   try{
+    //you will need to change these settings so they match your database
        $conn = new PDO('mysql:host=localhost;dbname=cit2202', 'cit2202', 'letmein');
 }
 catch (PDOException $exception)
