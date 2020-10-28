@@ -1,7 +1,7 @@
 # User Authentication
 ## A simple example with a hard-coded password
 Download this repository. The folder xyz is a website with a simple login system.
-* Open *login.php*, *login_process.php* in a text editor. See how the login systems is working, the email and password from the form are tested and then a session variable is set.
+* Open *login.php*, *login_process.php* in a text editor. See how the login system is working, the email and password from the form are tested and then a session variable is set.
 * Put the xyz website on a server. Login into the website and make sure you can navigate to each of the pages.
 * Have a good look at the code make sure you understand how sessions are being used to restrict access to pages in the site.
 
@@ -16,7 +16,7 @@ Clearly, using a hard-coded email and password has major limitations. Next, thin
 ### Hashing passwords
 We should never store passwords as plain text. Open *hashing.php* see how PHP generates password hashes.
 * Experiment with hashing some more passwords using both *md5* and *bcrpyt*.
-* Make sure you understand the different that adding a salt makes.
+* Make sure you understand the difference that adding a salt makes.
 
 
 ### Set up the database table
