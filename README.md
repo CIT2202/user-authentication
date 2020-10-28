@@ -1,6 +1,6 @@
 # User Authentication
 ## A simple example with a hard-coded password
-xyz is a website with a simple login system.
+Download this repository. The folder xyz is a website with a simple login system.
 * Open *login.php*, *login_process.php* in a text editor. See how the login systems is working, the email and password from the form are tested and then a session variable is set.
 * Put the xyz website on a server. Login into the website and make sure you can navigate to each of the pages.
 * Have a good look at the code make sure you understand how sessions are being used to restrict access to pages in the site.
@@ -31,4 +31,4 @@ If you browse this table you will see that the passwords have been hashed. The a
 * Modify the code in *login_process.php* so that you test the user's email address and password against the values in the users table. Have a look on the notes/slides from this week for an example, or look on php.net for info the **password_verify()** function (http://php.net/manual/en/function.password-verify.php).
 > If you are having problems getting this to work, temporarily comment out the redirection statements e.g. ```header( "Location: index.php" );``` you will then be able to see errors in login_process.php.
 
-* To test your understanding, in phpmyadmin use the 'insert' tab to add another user to the database table. Invent an email address and use a hashed password from *hashing.php* as the password. Check you can successfully login using this password. 
+* To test your understanding, in phpmyadmin use the 'insert' tab to add another user to the database table. Invent an email address and use a hashed password from *hashing.php* as the password. Check you can successfully login using this password.
