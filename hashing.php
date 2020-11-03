@@ -13,4 +13,5 @@ echo "<p>brcypt hash of 'huddersfield' = {$hashOfhuddersfield}</p>";
 //the two hashes will be different the password_hash() algorithm adds a salt
 $hashOfhuddersfield = password_hash("huddersfield", PASSWORD_DEFAULT);
 echo "<p>brcypt hash of 'huddersfield' = {$hashOfhuddersfield}</p>";
-;?>
+
+?>
