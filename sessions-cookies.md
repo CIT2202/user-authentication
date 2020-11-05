@@ -107,7 +107,7 @@ Here's an example:
 This cookie was set by the BBC website. It is storing a user id (the big long string). It can be accessed by any pages in bbc.co.uk (path = /) and it will expire in June 2021.
 
 ### Cookies in PHP
-Have a look at the following:
+Here's how cookies work in PHP.
 
 page1.php
 ```php
@@ -130,6 +130,8 @@ setcookie("name", "value", expiry date , "path");
 
 ```
 Most of the arguments are self explanatory. For the expiry date in *page1.php* we get the current time ```time()``` and add 15 minutes (60 x 15). So the cookie will expire in 15 minutes time.
+
+To read data stored in cookies we use the ```$_COOKIE``` variable. This is an array (like ```$_POST``` and ```$_GET```). We can access the cookie values by using the name of the cookie as a key e.g. ```$_COOKIE['fav_colour']```.
 
 The cookie will be deleted automatically by the browser at the expiry time. Alternatively we can delete a cookie by setting it's expiry date to be in the past e.g.
 
