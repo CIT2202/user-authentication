@@ -5,11 +5,11 @@ Download this repository. The folder xyz is a website with a simple login system
 * Put the xyz website on a server. Login into the website and make sure you can navigate to each of the pages.
 * Have a good look at the code make sure you understand how sessions are being used to restrict access to pages in the site.
 
-On your own
+On your own (the notes in *https://github.com/CIT2202/user-authentication/blob/master/sessions-cookies.md* should help you) 
 * Create a page called *logout.php*
    * This should destroy the session and provide a link back to the login form. Add a link to *logout.php* from the other pages in the site. Check this works.
 * You should find that even if the user has logged out they can still access *page3.php*.  Add some PHP code to *page3.php* that will prevent users from accessing this page unless they have logged in.
-* The notes in *https://github.com/CIT2202/user-authentication/blob/master/sessions-cookies.md* should help you. 
+* You should find that if the user enters the wrong username/password the application fails with a blank screen. How can you change the code in *login_process.php* so that the user is redirected to *login.php* if they enter the wrong username/password. 
 
 ## Using a database
 Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead. These will help you *https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md*
