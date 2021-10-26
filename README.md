@@ -12,7 +12,7 @@ On your own
 * The notes in *https://github.com/CIT2202/user-authentication/blob/master/sessions-cookies.md* should help you. 
 
 ## Using a database
-Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead.
+Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead. These will help you *https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md*
 
 ### Hashing passwords
 We should never store passwords as plain text. Open *hashing.php* see how PHP generates password hashes.
