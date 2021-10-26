@@ -9,6 +9,7 @@ On your own
 * Create a page called *logout.php*
    * This should destroy the session and provide a link back to the login form. Add a link to *logout.php* from the other pages in the site. Check this works.
 * You should find that even if the user has logged out they can still access *page3.php*.  Add some PHP code to *page3.php* that will prevent users from accessing this page unless they have logged in.
+* The notes in *https://github.com/CIT2202/user-authentication/blob/master/sessions-cookies.md* should help you. 
 
 ## Using a database
 Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead.
