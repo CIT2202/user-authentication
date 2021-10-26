@@ -179,7 +179,7 @@ To make hashed password more secure we can add a random string into the password
 
 By making the original password more complex it offers protection against look-up tables. Note that we put the salt on the start of the hash when we store it in the database. PHP needs to know the value of the salt so it can be combined with the user entered password and compared to the hash.
 
-There are different hashing functions. The example shown above, MD5, is widely known, but has vulnerabilities. It shouldn't be used for storing passwords.
+There are different hashing functions. The MD5 example shown above is widely known, but has vulnerabilities. It shouldn't be used for storing passwords.
 
 ### ```password_hash()```
 
