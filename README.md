@@ -12,11 +12,11 @@ On your own (the notes in *https://github.com/CIT2202/user-authentication/blob/m
 * You should find that if the user enters the wrong username/password the application fails with a blank screen. How can you change the code in *login_process.php* so that the user is redirected to *login.php* if they enter the wrong username/password. 
 
 ## Using a database
-Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead. These will help you *https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md*
+Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead. Have a look through the following: *https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md*
 
 ### Hashing passwords
 We should never store passwords as plain text. Open *hashing.php* see how PHP generates password hashes.
-* Experiment with hashing some more passwords using both *md5* and *bcrpyt*.
+* Experiment with hashing some more passwords using both *md5()* and *password_hash()*.
 * Make sure you understand the difference that adding a salt makes.
 
 
