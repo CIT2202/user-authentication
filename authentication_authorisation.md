@@ -49,7 +49,7 @@ session_start();
 </body>
 </html>
 ```
-The user enters an email and password into the form. When this form is submitted PHP is used to check the  email and password (authentication) we store their email address in a session variable. The line of code:
+The user enters an email and password into the form. When this form is submitted, PHP is used to check the  email and password (authentication) we store their email address in a session variable. The line of code:
 
 ```php
 header( "Location: index.php" );
@@ -106,7 +106,7 @@ users
 | 2  | regina@xyz.co.uk  | 123456 |
 | 3  | olive@xyz.co.uk   | qwerty |
 
-Then we can look up the email address and password that the user enters e.g.
+We can then check the email address and password that the user enters against the database e.g.
 
 ```php
 <?php
@@ -125,7 +125,7 @@ if($row = $stmt->fetch())
 ?>
 ```
 
-We successfully find a row with the email and password the user has entered we create the session variable.
+If we successfully find a row in the database table with the email and password that the user has entered we create the session variable.
 
 ## Hashing Passwords
 We shouldn't store plain text passwords in database tables.
@@ -143,7 +143,6 @@ echo md5("letmein"); //outputs 0d107d09f5bbe40cade3de5c71e9e9b7
 Here are some key points about hashing functions
 * Hashing functions are 'one way' functions. It is practically infeasible to reverse the hash.
 * Hashing functions are deterministic. Every time we hash the same password we get the same result.
-* Ideally different passwords should always have different hashes.
 
 So if hashes can't be reversed how can we check the user's password against the database?
 
@@ -151,7 +150,7 @@ Here's how it works:
 * The user registers and chooses their password. The password is hashed and stored in the database table.
 * When the user logs in they enter a password.
 * This entered password is also hashed and then compared to the stored password.
-If they match, the user login is successful.
+* If they match, the user login is successful.
 
 ### Hashes can be Cracked
 Although it isn't practical to reverse a hash, every time we hash a password we end up with the same string of characters. Two users with the same password will have the same hash.
@@ -183,12 +182,12 @@ There are different hashing functions. The MD5 example shown above is widely kno
 
 ### ```password_hash()```
 
-PHP has a function ```password_hash()``` that will hash values for us and automatically generate a salt. By default ```password_hash()``` uses an algorithm called bcrypt, although we can manually specify alternatives if we want to.
+PHP has a function ```password_hash()``` that will hash values for us and automatically generate a salt. By default ```password_hash()``` uses an algorithm called **bcrypt**, although we can manually specify alternatives if we want to.
 
 ### Checking user input against a hashed password
 When users register with a site we can use ```password_hash()``` to hash their password and then store this in a database.
 
-When this user tries to login we can use the ```password_verify()``` function to test the entered password. Here's a simple example
+When this user tries to login we can use the ```password_verify()``` function to test the entered password. Here's a simple example:
 
 ```php
 <?php
@@ -197,7 +196,7 @@ password_verify('huddersfield','$2y$10$em6X15KQt4prqPeJ0g9Dg.2zLzhC/WKPrKpRfdHDw
 ```
 ```password_verify()``` accepts two arguments, a string for the password and a string for the hash. If the password matches the hash ```password_verify()``` return true.
 
-Here's how we could use this function in a web application:
+Here's how we could use this function in a login system:
 
 ```php
 <?php
@@ -259,7 +258,7 @@ When the user logs in we can store their role in a session variable.
     if($row = $stmt->fetch()){
         if (password_verify($password, $row['password'])) {
           $_SESSION["user"]=$email;
-          $_SESSION["role"]=$row['role'];
+          $_SESSION["role"]=$row['role']; //store the user's role
           header( "Location: index.php" );
         }
     }
