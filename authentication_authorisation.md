@@ -35,11 +35,11 @@ session_start();
   <?php
   if(isset($_POST['login']))
   {
-  	$email=$_POST['email'];
-  	$password=$_POST['password'];
-  	if($email==="testuser@hud.ac.uk" && $password === "letmein")
+  	$email = $_POST['email'];
+  	$password = $_POST['password'];
+  	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
-  		$_SESSION["user"]=$email;
+  		$_SESSION["user"] = $email;
   		header( "Location: index.php" );
   	}
   }else{
@@ -119,7 +119,7 @@ $stmt->execute();
 
 if($row = $stmt->fetch())
 {
-	$_SESSION["user"]=$email;
+	$_SESSION["user"] = $email;
 	header( "Location: index.php" );
 }
 ?>
@@ -200,15 +200,15 @@ Here's how we could use this function in a login system:
 
 ```php
 <?php
-$email=$_POST['email'];
-$password=$_POST['password'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 $stmt->bindValue(':email',$email);
 $stmt->execute();
-$login=false;
+$login = false;
 if($row = $stmt->fetch()){
     if (password_verify($password, $row['password'])) {
-          $login=true;
+          $login = true;
     }
 }
 ?>
@@ -249,16 +249,16 @@ When the user logs in we can store their role in a session variable.
 
 ```php
 <?php
-    $email=$_POST['email'];
-    $password=$_POST['password'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->bindValue(':email',$email);
     $stmt->execute();
-    $login=false;
+    $login = false;
     if($row = $stmt->fetch()){
         if (password_verify($password, $row['password'])) {
-          $_SESSION["user"]=$email;
-          $_SESSION["role"]=$row['role']; //store the user's role
+          $_SESSION["user"] = $email;
+          $_SESSION["role"] = $row['role']; //store the user's role
           header( "Location: index.php" );
         }
     }
@@ -287,7 +287,7 @@ We can protect page content based on the user role.
 
 ```php
 <?php
-if($_SESSION["role"]!==2){
+if($_SESSION["role"] !== 2){
 	echo "<p>Only admin can access this page<p>";
 	echo "</body>";
 	echo "</html>";
