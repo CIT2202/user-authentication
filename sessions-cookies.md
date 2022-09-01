@@ -100,11 +100,11 @@ Here's an example:
 
 * **Name**: BBC-UID
 * **Value**: a42f7c6ffc25b8be38d2e9b0813928e0e55f71674eb8e3b973352aed880968480Mozilla%2f5%2e0%20%28
-* **Expires**: Thursday, 6 June 2021 22:03:10
+* **Expires**: Thursday, 6 June 2022 22:03:10
 * **Path**: /
 
 
-This cookie was set by the BBC website. It is storing a user id (the big long string). It can be accessed by any pages in bbc.co.uk (path = /) and it will expire in June 2021.
+This cookie was set by the BBC website. It is storing a user id (the big long string). It can be accessed by any pages in bbc.co.uk (path = /) and it expired on June 2022.
 
 ### Cookies in PHP
 Here's how cookies work in PHP.
