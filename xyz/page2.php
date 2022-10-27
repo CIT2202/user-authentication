@@ -1,23 +1,11 @@
-<?php
-session_start();
-if(!isset($_SESSION["user"]))
-{
-	//user tried to access the page without logging in
-  //redirect them to the login page
-	header( "Location: login.php" );
-};
-?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <title>Page 2</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-
 </head>
 
 <body>
-<?php echo "<p>You are logged in as : {$_SESSION['user']}</p>"; ?>
 <h1>Page 2</h1>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
