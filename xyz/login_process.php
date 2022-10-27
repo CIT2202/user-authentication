@@ -18,7 +18,7 @@ session_start();
   	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
   		$_SESSION["user"] = $email;
-  		echo "<p>Correct details, you can now go to <a href='page1.php'>Page 1</a></p>";
+  		echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
   	}else{
   	  echo "<p>That's the wrong username/password</p>";
     }
