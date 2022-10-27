@@ -10,9 +10,9 @@ Download this repository. The folder xyz is a website with a simple login system
 
 On your own
 * Protect ```page1.php```, ```page2.php``` and ```page3.php``` in the same way that ```index.php``` has been protected. You should be able to cut, copy, paste code from ```index.php```.
-* Create a page called *logout.php*
+* Create a page called ```logout.php```.
    * This should destroy the session and provide a link back to the login form. Add a link to *logout.php* from the other pages in the site. Check this works.
-* How can you use the ```header()``` function in PHP to reirect the user automatically so they don't have to click on links. e.g. change the code in *login_process.php* so that the user is redirected back to *login.php* automatically if they enter the wrong username/password. 
+* How can you use the ```header()``` function in PHP to reirect the user automatically so they don't have to click on links. e.g. change the code in ```login_process.php``` so that the user is redirected back to ```login.php``` automatically if they enter the wrong username/password. 
 
 ## Using a database
 Clearly, using a hard-coded email and password has major limitations. Next, think about how you can store user details in a database table instead. Have a look through the following [notes](https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md) to familiarise yourself with the basics of authentication and authorisation.
