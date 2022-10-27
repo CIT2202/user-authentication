@@ -14,6 +14,5 @@
     <input type="password" id="password" name="password">
     <input type="submit" name="login" value="Login">
 </form>
-
 </body>
 </html>
