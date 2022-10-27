@@ -18,12 +18,12 @@ session_start();
   	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
   		$_SESSION["user"] = $email;
-  		header( "Location: index.php" );
+  		echo "<p>Correct details, you can now go to <a href='page1.php'>Page 1</a></p>";
   	}else{
-  	  header( "Location: login.php" );
+  	  echo "<p>That's the wrong username/password</p>";
     }
   }else{
-     header( "Location: login.php" );
+     echo "<p>You shouldn't have got to this page.</p>";
   }
   ?>
 
