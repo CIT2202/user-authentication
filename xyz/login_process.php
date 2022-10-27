@@ -15,9 +15,9 @@ session_start();
   {
   	$email=$_POST['email'];
   	$password=$_POST['password'];
-  	if($email==="testuser@hud.ac.uk" && $password === "letmein")
+  	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
-  		$_SESSION["user"]=$email;
+  		$_SESSION["user"] = $email;
   		header( "Location: index.php" );
   	}else{
   	  header( "Location: login.php" );
