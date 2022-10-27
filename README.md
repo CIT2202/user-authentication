@@ -9,7 +9,7 @@ Download this repository. The folder xyz is a website with a simple login system
 * Close the browser and try and go directly to ```index.php``` without logging in. You should find that you can't access this page. 
 
 On your own
-* Protect ```page1.php``, ```page2.php``` and ```page3.php``` in the same way that ```index.php``` has been protected. You should be able to cut, copy, paste from ```index.php```.
+* Protect ```page1.php```, ```page2.php``` and ```page3.php``` in the same way that ```index.php``` has been protected. You should be able to cut, copy, paste from ```index.php```.
 * Create a page called *logout.php*
    * This should destroy the session and provide a link back to the login form. Add a link to *logout.php* from the other pages in the site. Check this works.
 * How can you use the ```header()``` function in PHP to reirect the user automatically so they don't have to click on links. e.g. change the code in *login_process.php* so that the user is redirected back to *login.php* automatically if they enter the wrong username/password. 
