@@ -15,7 +15,7 @@ session_start();
   {
   	$email=$_POST['email'];
   	$password=$_POST['password'];
-  	if($email === "testuser@hud.ac.uk" && $password === "letmein")
+  	if($email === "u01234567@hud.ac.uk" && $password === "letmein")
   	{
   		$_SESSION["user"] = $email;
   		echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
