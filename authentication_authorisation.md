@@ -206,14 +206,14 @@ $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 $stmt->bindValue(':email', $email);
 $stmt->execute();
 if($row = $stmt->fetch()){
-	if (password_verify($password, $row["password"])) {
-		$_SESSION["user"] = $email;
-		echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
-	}else{
-		  echo "<p>That's the wrong username/password</p>";
-	}
+   if (password_verify($password, $row["password"])) {
+      $_SESSION["user"] = $email;
+      echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
+   }else{
+      echo "<p>That's the wrong username/password</p>";
+   }
 }else{
-	echo "<p>That's the wrong username/password</p>";
+   echo "<p>That's the wrong username/password</p>";
 }
 ...
 ```
