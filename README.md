@@ -32,7 +32,7 @@ If you browse this table you will see that the passwords have been hashed. The a
 * olive@xyz.co.uk  password:qwerty
 
 ### Modify the login code to use a database
-* Modify the code in *login_process.php* so that you test the user's email address and password against the values in the users table. Have a look on the notes/slides from this week for an example, or look on php.net for info the **password_verify()** function (http://php.net/manual/en/function.password-verify.php).
+* Modify the code in *login_process.php* so that you test the user's email address and password against the values in the users table. Have a look on the notes/slides from this week for an example e.g. https://github.com/CIT2202/user-authentication/blob/master/authentication_authorisation.md#checking-user-input-against-a-hashed-password.
 > If you are having problems getting this to work, temporarily comment out the redirection statements e.g. ```header( "Location: index.php" );``` you will then be able to see errors in login_process.php.
 
 * To test your understanding, add another user to the users table. Invent an email address and a password. Hash this password (like the examples in *hashing.php*). In phpmyadmin use the 'insert' tab to these user details to the database table.  Check you can successfully login using this username/password.
