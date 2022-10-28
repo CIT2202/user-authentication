@@ -199,19 +199,23 @@ password_verify('huddersfield','$2y$10$em6X15KQt4prqPeJ0g9Dg.2zLzhC/WKPrKpRfdHDw
 Here's how we could use this function in a login system:
 
 ```php
-<?php
+...
 $email = $_POST['email'];
 $password = $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
-$stmt->bindValue(':email',$email);
+$stmt->bindValue(':email', $email);
 $stmt->execute();
-$login = false;
 if($row = $stmt->fetch()){
-    if (password_verify($password, $row['password'])) {
-          $login = true;
-    }
+	if (password_verify($password, $row["password"])) {
+		$_SESSION["user"] = $email;
+		echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
+	}else{
+		  echo "<p>That's the wrong username/password</p>";
+	}
+}else{
+	echo "<p>That's the wrong username/password</p>";
 }
-?>
+...
 ```
 
 Note that we don't use SQL to test the password. We simply retrieve the row that matches the email address. We then access the password field from this row and use ```password_verify()``` to test this against the user entered password.
