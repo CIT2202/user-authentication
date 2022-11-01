@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +7,7 @@ session_start();
 
 <body>
 <h1>Welcome to XYZ inc.</h1>
-<?php
-if(isset($_SESSION["error_msg"])){
-  echo "<p>{$_SESSION["error_msg"]}</p>";
-}
-?>
+
 
 <form action="login_process.php" method="post">
     <label for="username">Email address:</label>
