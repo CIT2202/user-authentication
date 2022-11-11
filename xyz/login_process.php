@@ -24,7 +24,7 @@ catch (PDOException $exception)
 if(isset($_POST['login']))
 {
     $email = $_POST['email'];
-  	$password = $_POST['password'];
+    $password = $_POST['password'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->bindValue(':email', $email);
     $stmt->execute();
