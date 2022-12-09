@@ -38,7 +38,7 @@ session_start();
   	$password = $_POST['password'];
   	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
-  		$_SESSION["email"] = $email;
+  		$_SESSION["email"] = $email; //store the user's email address in a session variable
   		header( "Location: index.php" );
   	}
   }else{
