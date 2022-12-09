@@ -5,10 +5,9 @@ Authorisation is checking if the user has permission to access part of a site or
 
 Authentication and authorisation are the basis for login systems in web applications.
 
-## Authentication and Authorisation a Simple Example
+## Authentication a simple Example
 Here's a simple example:-
 
-### Authentication
 login.html
 ```html
 <form action="login_process.php" method="post">
@@ -57,7 +56,7 @@ header( "Location: index.php" );
 
 Is used to redirect the user to a different page. So if they enter the correct details, the user will be automatically taken to a page called *index.php*.
 
-### Authorisation
+### Protecting pages
 If there are pages in the site that we want to restrict access to we can check to see if the *email* session variable has been set.
 
 index.php
@@ -95,7 +94,7 @@ if(!isset($_SESSION["user"]))
 ```
 Take a few minutes to look through the code.
 
-## Using a Database
+## Authentication using a database
 The previous example is clearly very simple. Most useful websites use a database to store usernames and passwords e.g.
 
 users
@@ -152,22 +151,23 @@ Here's how it works:
 * This entered password is also hashed and then compared to the stored password.
 * If they match, the user login is successful.
 
-### Hashes can be Cracked
+### Hashes can be cracked
 Although it isn't practical to reverse a hash, every time we hash a password we end up with the same string of characters. Two users with the same password will have the same hash.
 
 Hackers can use look-up tables which store commonly used passwords and their hashes.
 
-| id | password          | hash |
-|----|-------------------|----------|
-| 1  | password  | 5f4dcc3b5aa765d61d8327deb882cf99  |
-| 2  | Matthew  | 64730ca35ed9274ff6aa8a719407fe53 |
-| 3  | letmein   | 0d107d09f5bbe40cade3de5c71e9e9b7 |
+| id | password   | hash                             |
+|----|------------|----------------------------------|
+| 1  | password   | 5f4dcc3b5aa765d61d8327deb882cf99 |
+| 2  | Matthew    | 64730ca35ed9274ff6aa8a719407fe53 |
+| 3  | letmein    | 0d107d09f5bbe40cade3de5c71e9e9b7 |
+|... |...         |...                               |
 
 A hacker can then search the attacked database for hashes that match those in the look-up table and find the original password.
 
 In reality, the look-up tables are often more complex than this. Have a look at https://en.wikipedia.org/wiki/Rainbow_table if you are interested.
 
-### Using a Salt
+### Using a salt
 To make hashed password more secure we can add a random string into the password. This is known as a salt. For example:
 
 * Password = huddersfield
@@ -218,7 +218,7 @@ if($row = $stmt->fetch()){
 ...
 ```
 
-Note that we don't use SQL to test the password. We simply retrieve the row that matches the email address. We then access the password field from this row and use ```password_verify()``` to test this against the user entered password.
+Note that we don't use SQL to test the password. We simply retrieve the row that matches the email address. We then access the password field from this row (```$row["password"]```) and use ```password_verify()``` to test this against the user entered password.
 
 ## Authorisation
 Typically in a web application different users will have different roles e.g.
@@ -242,12 +242,12 @@ users
 
 roles
 
-|id|name|
-|--|----|
-|1|customer|
-|2|administrator|
+|id|name         |
+|--|-------------|
+|1 |customer     |
+|2 |administrator|
 
-This is a simple example we have a one-to-many relationshsip between **roles** and **users**. Alternatively, we might have a many-to-many relationship between user and role and need a junction table.
+This is a simple example, we have a one-to-many relationshsip between **roles** and **users**. Alternatively, we might have a many-to-many relationship between user and role and need a junction table.
 
 When the user logs in we can store their role in a session variable.
 
@@ -279,7 +279,7 @@ We can display navigation options based on the user’s role
         <li><a href="page3.php">Page 3</a></li>
         <li><a href="logout.php">Logout</a></li>
         <?php
-        if($_SESSION["role"] === 2){
+        if($_SESSION["role"] == 2){
             echo '<li><a href="admin.php">Extra Admin Option</a></li>';
         }
         ?>
@@ -291,7 +291,7 @@ We can protect page content based on the user role.
 
 ```php
 <?php
-if($_SESSION["role"] !== 2){
+if($_SESSION["role"] != 2){
 	echo "<p>Only admin can access this page<p>";
 	echo "</body>";
 	echo "</html>";
