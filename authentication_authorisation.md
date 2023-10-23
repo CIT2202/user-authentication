@@ -39,10 +39,10 @@ session_start();
   	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
   		$_SESSION["email"] = $email; //store the user's email address in a session variable
-  		header( "Location: index.php" );
+  		header( "Location: index.php" ); //redirect the user to the homepage
   	}
   }else{
-  	header( "Location: login.php" );
+  	header( "Location: login.php" ); 
   }
   ?>
 </body>
