@@ -38,7 +38,7 @@ session_start();
   	$password = $_POST['password'];
   	if($email === "testuser@hud.ac.uk" && $password === "letmein")
   	{
-  		$_SESSION["email"] = $email; //store the user's email address in a session variable
+  		$_SESSION["user"] = $email; //store the user's email address in a session variable
   		header( "Location: index.php" ); //redirect the user to the homepage
   	}
   }else{
@@ -63,7 +63,7 @@ index.php
 ```php
 <?php
 session_start();
-if(!isset($_SESSION["email"]))
+if(!isset($_SESSION["user"]))
 {
 	//user tried to access the page without logging in
   //redirect them to the login page
@@ -77,7 +77,7 @@ if(!isset($_SESSION["email"]))
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 </head>
 <body>
-<?php echo "<p>You are logged in as : {$_SESSION['email']}</p>"; ?>
+<?php echo "<p>You are logged in as : {$_SESSION['user']}</p>"; ?>
 <h1>Welcome to XYZ inc.</h1>
 <p>Find out everything you need to know about the XYZ company</p>
 <nav>
@@ -118,7 +118,7 @@ $stmt->execute();
 
 if($row = $stmt->fetch())
 {
-	$_SESSION["email"] = $email;
+	$_SESSION["user"] = $email;
 	header( "Location: index.php" );
 }
 ?>
@@ -207,7 +207,7 @@ $stmt->bindValue(':email', $email);
 $stmt->execute();
 if($row = $stmt->fetch()){
    if (password_verify($password, $row["password"])) {
-      $_SESSION["email"] = $email;
+      $_SESSION["user"] = $email;
       echo "<p>Correct details, you can now go to <a href='index.php'>homepage</a></p>";
    }else{
       echo "<p>That's the wrong username/password</p>";
@@ -261,7 +261,7 @@ When the user logs in we can store their role in a session variable.
     $login = false;
     if($row = $stmt->fetch()){
         if (password_verify($password, $row['password'])) {
-          $_SESSION["email"] = $email;
+          $_SESSION["user"] = $email;
           $_SESSION["role"] = $row['role']; //store the user's role
           header( "Location: index.php" );
         }
