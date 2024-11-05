@@ -37,5 +37,5 @@ If you browse this table you will see that the passwords have been hashed. The a
 
 * To test your understanding, add another user to the users table. Invent an email address and a password. Hash this password (like the examples in *hashing.php*). In phpmyadmin use the 'insert' tab to these user details to the database table.  Check you can successfully login using this username/password.
 
-* One weakness of this example is the user has to click a link or use the back button on *login_process.php*. Add redirection to the *login_process.php* so that the user is automatically taken to the home page if they enter the correct details, and returned to the login page if they don't.
+* One weakness of this example is the user has to click a link or use the back button on *login_process.php*. Add redirection to *login_process.php* so that the user is automatically taken to the home page if they enter the correct details, or returned to the login page if they don't.
     * If this works, think about how you can pass a message back to the login page letting the user know they entered the wrong details (use a session variable). 
