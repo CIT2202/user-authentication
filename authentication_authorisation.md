@@ -111,7 +111,7 @@ We can then check the email address and password that the user enters against th
 <?php
 $email=$_POST['email'];
 $password=$_POST['password'];
-$stmt = $conn->prepare("SELECT * FROM users WHERE email = :email AND password=:password");
+$stmt = $conn->prepare("SELECT email, password FROM users WHERE email = :email AND password=:password");
 $stmt->bindValue(':email',$email);
 $stmt->bindValue(':password',$password);
 $stmt->execute();
@@ -202,7 +202,7 @@ Here's how we could use this function in a login system:
 ...
 $email = $_POST['email'];
 $password = $_POST['password'];
-$stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+$stmt = $conn->prepare("SELECT email, password FROM users WHERE email = :email");
 $stmt->bindValue(':email', $email);
 $stmt->execute();
 if($row = $stmt->fetch()){
@@ -255,7 +255,7 @@ When the user logs in we can store their role in a session variable.
 <?php
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt = $conn->prepare("SELECT email, password, role FROM users WHERE email = :email");
     $stmt->bindValue(':email',$email);
     $stmt->execute();
     $login = false;
