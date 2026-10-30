@@ -30,7 +30,7 @@ We should never store passwords as plain text. Open *hashing.php* see how PHP ge
 
 
 ### Set up the database table
-Using the same database that you have used in previous weeks, execute the SQL statements in [users.sql](users.sql). This will set up a database table containing user emails and passwords.
+In Adminer, execute the SQL statements in [users.sql](users.sql). This will set up a database table containing user emails and passwords.
 
 If you browse this table you will see that the passwords have been hashed. The actual passwords are:-
 * ghulam@xyz.co.uk password:huddersfield
